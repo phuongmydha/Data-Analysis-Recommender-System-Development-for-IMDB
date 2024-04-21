@@ -152,12 +152,4 @@
   </ul>
 </div>
 
-
-
-
-
-
-
-
-
-Collaborative Filtering- Using Itembased Filtering
+### Collaborative Filtering- Using Itembased Filtering
