@@ -1,11 +1,12 @@
 ## Data Preprocessing
 ### Data Formatting Adjustment
-To obtain more comprehensive information during analysis, the team merged two datasets: Movies and Credits. The resulting dataset included the following columns:
+To obtain more comprehensive information during analysis, the team merged two datasets: Movies and Credits. The resulting dataset included the following columns. However, upon exploring the dataset attributes, the team noticed some attributes with limited analytical significance. To streamline the analysis process and expedite processing, the team removed columns lacking analytical significance.
 <div align = "center">
   <img width="277" alt="Screenshot 2024-04-21 at 13 07 41" src="https://github.com/phuongmydha/Data-Analysis-Recommender-System-Development-for-IMDB/assets/166359916/ae861855-98fe-4c7c-88b6-1c00bb953c2b">
+  <img width="501" alt="Screenshot 2024-04-21 at 13 11 26" src="https://github.com/phuongmydha/Data-Analysis-Recommender-System-Development-for-IMDB/assets/166359916/d17c0562-597d-4f97-a13b-67300c6269d0">
 </div>
 
-However, upon exploring the dataset attributes, the team noticed some attributes with limited analytical significance. To streamline the analysis process and expedite processing, the team removed columns lacking analytical significance.
+
 
 The dataset contains numerous text-based attributes about movies. However, these columns lacked appropriate formatting; for example, the 'genres' attribute for each movie was stored as a string instead of a list. The team used the 'ast' library to process these columns and convert them to the appropriate format. The processed dataset appeared as follows:
 
