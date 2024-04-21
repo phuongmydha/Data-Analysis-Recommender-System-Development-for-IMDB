@@ -1,4 +1,4 @@
-### Data Preprocessing
+## Data Preprocessing
 <div>
   <h4>Data Formatting Adjustment:</h4>
   <ul>
@@ -89,6 +89,75 @@
   </ul>
 </div>
 
-
-
 ## Recommendation System
+<div>
+  <h3>Demographic Filtering</h3>
+  <ul>
+    <li>This code segment is used to create a Weighted Rating system for movies based on the number of ratings and the average rating score.</li>
+    <li>First, computing the average rating score (C) for all movies based on the 'vote_average' column and determines the rating count threshold (m) using the 0.9 quantile of the 'vote_count' column.</li>
+    <li>Then, a copy of the DataFrame movies is created, and movies with a rating count greater than or equal to the threshold m are filtered and stored in the DataFrame q_movies.</li>
+    <li>A function weighted_rating(x, m, C) is defined to calculate the weighted rating score for each movie based on the given formula.</li>
+    <li>The weighted_rating function is applied to each row in the DataFrame q_movies to calculate the score for each movie.</li>
+    <li>Finally, the DataFrame q_movies is sorted in descending order based on the 'score' column, so that movies with the highest scores appear first.</li>
+  </ul>
+  <h5>RESULT</h5>
+  <p>The DataFrame q_movies will contain a list of movies sorted by weighted rating, where movies with high ratings and a large number of reviews will be positioned at the top of the list. This prioritizes popular and highly rated movies when displaying results to users.</p>
+  <h5>EVALUATE</h5>
+  <ul>
+    <li>Although this proposed method is easy to implement and understand, it may not be sensitive to the specific preferences of individual users, especially for new users of the service or when there is limited behavioral data available.</li>
+    <li>Therefore, the team will proceed with transitioning to Content-Based Filtering system to provide a more personalized and accurate experience for users.</li>
+  </ul>
+</div>
+
+### Content-based Filtering
+<div>
+  <h4>KMeans Clustering Method</h4>
+  <p>In this method, the team will cluster movies based on the data in the 'genres' column.</p>
+  <ol>
+    <li>The team first uses MultiLabelBinarizer from the scikit-learn library to transform the 'genres' column containing multiple values into a binary matrix format to be used in the kmeans model.</li>
+    <li>Dimensionality reduction is performed using the PCA method on the binary matrix created from the 'genres' column to reduce it to 2 dimensions, allowing the algorithm to work more efficiently, enhancing clustering capabilities, and providing a more intuitive representation in a 2-dimensional space.</li>
+    <li>After reducing the dimensionality of the data, the team evaluates k clusters using the Silhouette method to choose the best k for the algorithm. Based on the Silhouette scores chart, the team finds that k=11 is the optimal value and proceeds to build the kmeans model.</li>
+  </ol>
+  <ol>
+    <li> I continue to build a movie recommendation system based on the clustering model just created.
+    <li>First, the presence of the movie in the DataFrame movies is checked. If the movie does not exist, the function returns a message "Movie not found." If the movie exists, its cluster is retrieved from the 'cluster' column and all movies belonging to the same cluster are filtered, retaining information about the title and genres.</li>
+    <li>The selected movie is removed from the list of movies belonging to the same cluster to avoid it appearing in the recommendation list, and a DataFrame containing a list of movies belonging to the same cluster as the selected movie is returned. This is the list of movies that the system suggests users may be interested in.</li>
+  </ol>
+  <h5>RESULT</h5>
+  <p>It can be seen that the system has provided fairly accurate recommendations for movies with similar genres.</p>
+</div>
+
+<div>
+  <h4>Cosine Similarity Method</h4>
+  <p>In this recommendation system, the team will use the following attributes as metadata to find correlations between movies: cast, director, keywords, genres, production_companies, overview.</p>
+  <ol>
+    <li>The team extracts the necessary attributes from the available columns.</li>
+    <li>The team proceeds to clean the data in each extracted attribute by converting each element in each column into a lowercase string and removing whitespace.</li>
+    <li>Next, the team creates soup, a string containing all the extracted metadata that the team wants to provide for vectorization. The team wants the system to prioritize director metadata more than the other metadata by tripling the weight for each row containing director metadata.</li>
+    <li>The team applies a technique in NLP (Natural Language Processing) called Stemming to normalize and reduce the length of words, helping the model understand equivalent meanings of words despite potential variations in grammatical forms.</li>
+    <li>The text data in the 'soup' column of the DataFrame movies is converted into a count matrix, where each row corresponds to a sample (text) and each column corresponds to a word appearing in the 'soup' column.</li>
+    <li>The stop_words='english' parameter is used to remove English stop words from the text, commonly used words that often do not carry significant meaning.</li>
+    <li>The purpose of creating a text count matrix is to reflect the frequency of each word's appearance in the text samples. This matrix can be used as input for machine learning models to perform tasks such as text classification, term clustering, or other tasks related to natural language processing.</li>
+    <li>The team observes that there are 28,404 different words in each soup column.</li>
+    <li>After creating the count matrix, the team calculates the correlation of the count matrix using the cosine_similarity function available in the sklearn library.</li>
+    <li>After calculating the correlation of the count matrix, a function is built to provide movie recommendations based on similarity.</li>
+  </ol>
+  <h5> EVALUATE </h5>
+  <ul>
+    <li>This system focuses on the content of the movies, independent of user data. This is useful when there is limited user data or when users are new to the platform. </li>
+    <li>Computing cosine similarity between movies can be done quickly, especially with a not overly large dataset. </lii>
+    <li>However, there are still some limitations with this system. It does not utilize feedback from users, meaning it does not adjust recommendations based on user viewing behavior. </li>
+    <li>Additionally, if there is not enough information in the content of the movies or if the movie dataset is not diverse, the system may struggle to generate accurate recommendations. </li>
+    <li>Therefore, to achieve optimal performance, the team will consider integrating other methods such as Collaborative Filtering. </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+Collaborative Filtering- Using Itembased Filtering
