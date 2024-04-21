@@ -84,7 +84,10 @@
       <ul>
         <li>Distinguishing films from major production studios and independent ones, recognizing trends in the film industry.</li>
         <li>Example: Films from major studios like Disney, Warner Bros., independent films, documentaries, etc.</li>
-
+      </ul>
+    </li>
+  </ul>
+</div>
 
 
 
