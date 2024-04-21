@@ -53,3 +53,39 @@
   </ul>
 </div>
 
+## Hypotheis Testing
+## Segmentaion and Clustering:
+<div>
+  <h4>Using KMeans for:</h4>
+  <ul>
+    <li>
+      <h4>Grouping based on common characteristics:</h4>
+      <ul>
+        <li>Identifying film groups with common features such as genre, country of production, language, to gain a deeper understanding of audience preferences.</li>
+        <li>Example: Action films, horror films, films from European countries, etc.</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Predicting ratings and commercial success:</h4>
+      <ul>
+        <li>Discovering clusters of films that tend to receive high ratings and achieve high revenue, aiding in predicting success before film release.</li>
+        <li>Example: Films highly praised by critics, films surpassing average revenue, etc.</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Analyzing audience behavior:</h4>
+      <ul>
+        <li>Understanding viewers' movie-watching habits through variables such as viewing time, broadcast dates, access sources, to shape marketing and promotion strategies.</li>
+        <li>Example: Weekend movie-watching audience, viewers preferring online platforms, etc.</li>
+      </ul>
+    </li>
+    <li>
+      <h4>Identifying trends and distinctions between film groups:</h4>
+      <ul>
+        <li>Distinguishing films from major production studios and independent ones, recognizing trends in the film industry.</li>
+        <li>Example: Films from major studios like Disney, Warner Bros., independent films, documentaries, etc.</li>
+
+
+
+
+## Recommendation System
