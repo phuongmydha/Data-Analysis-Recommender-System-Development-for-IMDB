@@ -1,4 +1,4 @@
-## Data Preprocessing
+x## Data Preprocessing
 <div>
   <h4>Data Formatting Adjustment:</h4>
   <ul>
@@ -118,6 +118,14 @@
     <li>Dimensionality reduction is performed using the PCA method on the binary matrix created from the 'genres' column to reduce it to 2 dimensions, allowing the algorithm to work more efficiently, enhancing clustering capabilities, and providing a more intuitive representation in a 2-dimensional space.</li>
     <li>After reducing the dimensionality of the data, the team evaluates k clusters using the Silhouette method to choose the best k for the algorithm. Based on the Silhouette scores chart, the team finds that k=11 is the optimal value and proceeds to build the kmeans model.</li>
   </ol>
+</div>
+
+<div align = "center">
+  ![image33](https://github.com/phuongmydha/Data-Analysis-Recommender-System-Development-for-IMDB/assets/166359916/c95b4b7e-6d3c-433e-bbbc-b2e6842d003f)
+</div>
+  
+
+<div>
   <ol>
     <li> I continue to build a movie recommendation system based on the clustering model just created.
     <li>First, the presence of the movie in the DataFrame movies is checked. If the movie does not exist, the function returns a message "Movie not found." If the movie exists, its cluster is retrieved from the 'cluster' column and all movies belonging to the same cluster are filtered, retaining information about the title and genres.</li>
